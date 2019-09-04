@@ -1,0 +1,37 @@
+-   name: test set 1 of my_new module
+    hosts: '{{ vm_name }}'
+    tasks:
+    -   name: run test 1
+        my_temp:
+            name: hello 1
+        register: testout
+    -   name: dump test 1 output
+        debug:
+            msg: '{{ testout }}'
+
+    -   name: run test 2
+        my_temp:
+            name: hello 2
+            new: true
+        register: testout
+    -   name: dump test 2 output
+        debug:
+            msg: '{{ testout }}'
+
+    -   name: run test 3
+        my_temp:
+            name: hello 3
+            new: false
+        register: testout
+    -   name: dump test 3 output
+        debug:
+            msg: '{{ testout }}'
+
+    -   name: run test 4
+        my_temp:
+            name: fail me
+            new: true
+        register: testout
+    -   name: dump test 4 output
+        debug:
+            msg: '{{ testout }}'
